@@ -100,8 +100,51 @@ mensaje.value = 'Adios'
 
 # Para evaluar diferentes valores se recomienda utilizar computed property
 
+# Directivas de vue
+Se inician con v- y se colocan como atributos del html
+
+# Props 
+
+Vue utiliza props para pasar informacion entre componentes.
+Estos pueden ser datos estaticos o reactivos.
+
+Si pasamos funciones se recomienda desde Component event
+
+Los props nunca deben de modificar  el state  en el componente hijo
+
+La función defineProps es una función proporcionada por Vue 3 que se utiliza en el contexto de los componentes de Vue de una sola instancia para definir las propiedades que se pueden pasar al componente desde el componente padre.
+
+Cuando defines props utilizando defineProps, estás estableciendo una interfaz clara y explícita para las propiedades que se pueden pasar a un componente y especificando su tipo y otras opciones de configuración.
 
 
+# Atributos dinamicos
+v-bind:src
+:src="guitarra.imagen"
+
+# Eventos Vue 
+Los eventos son interacciones del usuario Clicks, submit. Acciones de DOM.
+Ejemplo->v-on:click
+
+existen 2 tipos de eventos
+Inline handlers-> Para tareas sencillas como cabiar colores.
+
+Method handlers-> Para cuando realizar diferente acciones como la de validar los datos de un formulario.
+
+> Eventos para componentes
+
+@click, @submit son eventos muy comunes en nuestros proyectos, debido a que el state de un proyecto no puede cambiarse en los Props, lo ideal es registar un evento para el componente.
+
+Por defectos un evento se asocia a un boton o formulario y buscara un funcion del propio componente.
+
+Pero si queremos que se comunique con el componente padre debemos utilizar una sintaxis especial llamada emit y registrar un componente event o evento del componente
+
+> Eventos componentes personalizados
+
+# Pasar info de un componente hijo al padre
+
+-> Del padre al hijo con props
+
+-> Del hijo al padre con emit
 
 
 
