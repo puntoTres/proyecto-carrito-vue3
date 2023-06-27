@@ -37,17 +37,46 @@ onMounted(()=>{//Ejecuta todo lo que hay dentro cuando el componente se ha sido 
 
 
 const agregarCarrito = (guitarra) =>{
+    const existeCarrito = carrito.value.findIndex(
+        producto => producto.id == guitarra.id)
+
+        if(existeCarrito >= 0){
+            carrito.value[existeCarrito].cantidad++;
+
+        }else{
+            guitarra.cantidad = 1; 
+            carrito.value.push(guitarra);
+        }  
     // numero.value++;
-    guitarra.cantidad = 1;
-    console.log('Agregando...',guitarra)
-    carrito.value.push(guitarra);
+    
+    // console.log('Agregando...',guitarra)
+    
 }
 
+// const modCarrito = (signo)=> {
+//     if(signo == 'resta'){
+//         carrito.value.cantidad--;
+//     }else{
+//         carrito.value.cantidad++;
+//     }
+// }
+
+
+const modCarrito = (signo)=> {
+    if(signo == 'resta'){
+        carrito.value.cantidad--;
+    }else{
+        carrito.value.cantidad++;
+    }
+}
 
 </script>
 
 <template>
-    <Header :carrito="carrito"/>
+    <Header :carrito="carrito" 
+    @modCarrito="modCarrito(resta)"
+   
+    />
     <main class="container-xl mt-5">
         <h2 class="text-center">Nuestra Colección</h2>
         <div class="row mt-5">
